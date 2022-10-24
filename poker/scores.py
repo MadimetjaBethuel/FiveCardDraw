@@ -1,5 +1,4 @@
 
-from Deck import Deck
 NUMBER_OF_CARDS = 5
 
 
@@ -20,9 +19,6 @@ class Scores:
 
     def straight(self):
         self.playerCards.sort()
-
-        print(self.playerCards)
-
         if not len(set(self.playerCards)) == NUMBER_OF_CARDS:
             return False
 
@@ -103,17 +99,3 @@ class Scores:
             return True
         else:
             return False
-
-
-if __name__ == "__main__":
-
-    cards = Deck()
-    cards.shuffle()
-
-    playerCard = cards.dealCards()
-
-    scoreTest = Scores(playerCard)
-
-    print(playerCard)
-
-    print(" Testing : ", scoreTest.onePair())

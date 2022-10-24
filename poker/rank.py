@@ -1,7 +1,7 @@
-from enum import Enum
+from enum import IntEnum
 
 
-class Rank(Enum):
+class Rank(IntEnum):
     TWO = 2
     THREE = 3
     FOUR = 4
@@ -18,4 +18,3 @@ class Rank(Enum):
 
     def __str__(self):
         return self.name.lower()
-

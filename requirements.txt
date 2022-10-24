@@ -1,0 +1,6 @@
+
+# This file is used to store all the required packages
+# usage pip install -r requirements.txt (must be on path)
+
+Flask
+Flask-Cors 
