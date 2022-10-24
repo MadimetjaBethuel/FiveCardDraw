@@ -24,12 +24,10 @@ def checkHand():
     threeOfKind = score.threeOfKind()
     fourOfKind = score.fourOfKind()
     fullHouse = score.fullHouse()
+    straightFlush = score.straightFlush()
 
-    if straight and flush and straight == 14:
-        return "Royal Flush"
-
-    elif straight and flush:
-        return "Straigh Flush"
+    if straightFlush:
+        return "Straight Flush"
 
     elif fourOfKind:
         return "Four of a Kind"
