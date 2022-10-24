@@ -8,11 +8,6 @@ class Player:
     def cardCount(self):
         return len(self.cards)
 
-    def serialize(self, cards):
-        """Convert card into a JSON string."""
-        card_json = "{} of {}".format(self.playerCards)
-        return card_json
-
     @staticmethod
     def serialize_hand(hand):
         """Serialize player's hand of cards into JSON."""

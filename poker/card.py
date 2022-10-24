@@ -3,6 +3,10 @@
 class Card:
 
     def __init__(self, rank, suit):
+        if rank is None:
+            raise ValueError("Rank must not be None")
+        if suit is None:
+            raise ValueError("Suit must not be None")
         self.rank = rank
         self.suit = suit
 

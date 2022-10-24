@@ -6,13 +6,17 @@ class Scores:
 
     def __init__(self, cards):
 
-        if not len(cards) == 5:
-            return "Wrong number of cards"
+        if not len(cards) == 5 and cards == None:
+            raise ValueError("hand cannot be less than 5")
         self.cards = cards
         self.playerCards = [card.rank for card in self.cards]
         self.suits = [card.suit for card in self.cards]
 
+    def numberOfCards(self):
+        return len(self.cards)
+
     def flush(self):
+
         if len(set(self.suits)) == 1:
             return True
         return False
@@ -28,19 +32,16 @@ class Scores:
 
         else:
             # dealing with aces
-            if set(self.playerCards) == set(["14", "2", "3", "4", "5"]):
+            if set(self.playerCards) == set([14, 2, 3, 4, 5]):
                 return True
             return False
 
     def highCard(self):
 
-        highCard = None
-        for card in self.cards:
-            if highCard is None:
-                highCard = card
-            elif highCard.rank < card.rank:
-                highCard = card
-        return highCard
+        if not self.flush() or self.straight() or self.fourOfKind() or self.onePair() or self.straightFlush() or self.threeOfKind() or self.twoPair():
+            return True
+        else:
+            return False
 
     def pairs(self):
         pairs = []
@@ -67,7 +68,7 @@ class Scores:
 
     def threeOfKind(self):
         count = 0
-        print(self.playerCards)
+
         for card in self.playerCards:
             if self.playerCards.count(card) > count:
                 count = self.playerCards.count(card)
@@ -95,7 +96,7 @@ class Scores:
 
     def straightFlush(self):
 
-        if self.flush() and self.straight():
+        if self.straight() and self.flush():
             return True
         else:
             return False
